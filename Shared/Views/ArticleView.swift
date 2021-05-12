@@ -11,13 +11,23 @@ struct ArticleView: View {
     let article: Article
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(article.title)
-                .font(.title)
-            Text(article.description)
-                .font(.headline)
-            Spacer()
+        #if os(watchOS)
+        return
+            VStack(alignment: .leading, spacing: 5) {
+                Text(article.title)
+                Text(article.description)
+                Spacer()
+            }.padding()
+        #else
+        return
+            VStack(alignment: .leading, spacing: 5) {
+                Text(article.title)
+                    .font(.title)
+                Text(article.description)
+                    .font(.headline)
+                Spacer()
         }.padding()
+        #endif
     }
 }
 

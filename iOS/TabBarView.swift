@@ -28,7 +28,7 @@ struct TabBarView: View {
                     Text("Sport")
                 }
                 .tag(2)
-        }.navigationTitle("Articles")
+        }
     }
 }
 
